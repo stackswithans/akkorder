@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
     "target": "es5",                               
+    "outDir":"dist", 
     "module": "es2015",                          
     "strict": true,                             
     "esModuleInterop": true,                     
     "skipLibCheck": true,                         
-    "forceConsistentCasingInFileNames": true       
+    "forceConsistentCasingInFileNames": true, 
+    "moduleResolution":"node"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"], 

@@ -33,10 +33,10 @@ export class Chromagram {
     private referenceFrequency: number;
     private noteFrequencies: number[];
 
-    private bufferSize: number;
-    private samplingFrequency: number;
-    private inputAudioFrameSize: number;
-    private downSampledAudioFrameSize: number;
+    private bufferSize: number = 0;
+    private samplingFrequency: number = 0;
+    private inputAudioFrameSize: number = 0;
+    private downSampledAudioFrameSize: number = 0;
     private numHarmonics: number;
     private numOctaves: number;
     private numBinsToSearch: number;

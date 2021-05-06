@@ -31,11 +31,11 @@ export enum ChordQuality {
 /** A class for estimating chord labels from this.chromagram input */
 export class ChordDetector {
     /** The root note of the detected chord */
-    public rootNote: number;
+    public rootNote: number = 0;
     /** The quality of the detected chord (Major, Minor, etc) */
-    public quality: number;
+    public quality: number = 0;
     /** Any other intervals that describe the chord, e.g. 7th */
-    public intervals: number;
+    public intervals: number = 0;
 
     private chromagram: number[];
     private chordProfiles: number[][];
