@@ -2,7 +2,7 @@
     "name": "akkorder",
     "version": "1.0.0",
     "author": "Sténio Jacinto <stexor12@gmail.com> (http://github.com/stackswithans)",
-    "main": "src/main.ts",
+    "main": "dist/main.js",
     "types": "src/main.d.ts", 
     "jest": {
         "testPathIgnorePatterns": [
@@ -10,6 +10,7 @@
         ]
     },
     "scripts": {
+        "build": "tsc -d",
         "test": "jest"
     },
     "devDependencies": {
