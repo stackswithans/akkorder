@@ -1,0 +1,27 @@
+{
+    "name": "akkorder",
+    "version": "1.0.0",
+    "author": "Sténio Jacinto <stexor12@gmail.com> (http://github.com/stackswithans)",
+    "main": "src/main.ts",
+    "types": "src/main.d.ts", 
+    "jest": {
+        "testPathIgnorePatterns": [
+            "./__tests__/testSignals.ts"
+        ]
+    },
+    "scripts": {
+        "test": "jest"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.14.0",
+        "@babel/preset-env": "^7.14.1",
+        "@babel/preset-typescript": "^7.13.0",
+        "@types/jest": "^26.0.23",
+        "babel-jest": "^26.6.3",
+        "jest": "^26.6.3",
+        "typescript": "^4.0.0"
+    },
+    "dependencies": {
+        "fft.js": "^4.0.4"
+    }
+}
