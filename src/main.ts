@@ -1,7 +1,7 @@
 import { Chromagram } from "./Chromagram";
 import { ChordDetector } from "./ChordDetector";
 
-enum RootNotes {
+export enum RootNotes {
     C = "C",
     CSHARPDFLAT = "C#/Db",
     D = "D",
@@ -13,7 +13,7 @@ enum RootNotes {
     GSHARPAFLAT = "G#/Ab",
     A = "A",
     ASHARPBFLAT = "A#/Bb",
-    B = "FLAT",
+    B = "B",
 }
 
 const notes = [
@@ -47,23 +47,23 @@ export function prettifyChord(
     return { rootNote: notes[rootNote], quality, interval };
 }
 
-/** Performs the chord detection algorithm on the array containing the sound data
+/** Performs the chord detection algorithm on the array containing the sound data.
+    The frame size will be equal to the sampling frequency.
+    Number of chords returned will be approximately equal to the number of seconds in the audio track.
       @param audioBuffer Buffer than contains the sound data
       @param sampleRate the sampling frequency
-      @param frameSize the input audio frame size
       @returns An array of chords 
 */
 export function detectChords(
     audioBuffer: number[],
-    sampleRate: number,
-    frameSize: number
+    sampleRate: number
 ): Chord[] {
-    let chroma_builder = new Chromagram(frameSize, sampleRate);
+    let chroma_builder = new Chromagram(sampleRate, sampleRate);
     let detector = new ChordDetector();
-    let frame = new Array(frameSize);
+    let frame = new Array(sampleRate);
     let chords = [];
-    for (let i = 0; i < audioBuffer.length; i = i + frameSize) {
-        for (let k = 0; k < frameSize; k++) {
+    for (let i = 0; i < audioBuffer.length; i = i + sampleRate) {
+        for (let k = 0; k < sampleRate; k++) {
             frame[k] = audioBuffer[i + k];
         }
         chroma_builder.processAudioFrame(frame);
