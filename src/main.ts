@@ -33,6 +33,12 @@ const notes = [
 
 type Chord = { rootNote: RootNotes; quality: number; interval: number };
 
+/** Formats a chord by replacing the root note index with the string representation f 
+      @param rootNote The root note of the detected chord
+      @param sampleRate The quality of the detected chord (Major, Minor, etc)
+      @param interval Any other intervals that describe the chord, e.g. 7th
+      @returns A chord object
+*/
 export function prettifyChord(
     rootNote: number,
     quality: number,
@@ -46,15 +52,15 @@ export function prettifyChord(
       @param sampleRate the sampling frequency
       @param frameSize the input audio frame size
       @returns An array of chords 
-    */
+*/
 export function detectChords(
-    audioBuffer: Float64Array | Float32Array,
+    audioBuffer: number[],
     sampleRate: number,
     frameSize: number
 ): Chord[] {
     let chroma_builder = new Chromagram(frameSize, sampleRate);
     let detector = new ChordDetector();
-    let frame = new Float64Array(frameSize);
+    let frame = new Array(frameSize);
     let chords = [];
     for (let i = 0; i < audioBuffer.length; i = i + frameSize) {
         for (let k = 0; k < frameSize; k++) {
