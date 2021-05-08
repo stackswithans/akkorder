@@ -113,7 +113,7 @@ export class Chromagram {
      * the length indicated by the input audio frame size passed to the constructor
      * @see setInputAudioFrameSize
      */
-    public processAudioFrame(inputAudioFrame: Float32Array) {
+    public processAudioFrame(inputAudioFrame: Float64Array | Float32Array) {
         // process the vector
         // our default state is that the chroma is not ready
         this.chromaReady = false;
@@ -266,7 +266,7 @@ export class Chromagram {
         }
     }
 
-    private downSampleFrame(inputAudioFrame: Float32Array) {
+    private downSampleFrame(inputAudioFrame: Float64Array | Float32Array) {
         let filteredFrame: number[] = new Array(this.inputAudioFrameSize);
         let b0, b1, b2, a1, a2;
         let x_1, x_2, y_1, y_2;
