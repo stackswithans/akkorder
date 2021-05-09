@@ -13,7 +13,9 @@ The original implementation can be found [here](https://github.com/adamstark/Cho
 
 ## Usage - Custom API 
 The `detectChords` function is not a part of the original library, it was added to
-to the port for my specific needs. The number of chords returned 
+to the port for my specific needs. The function performs the chord detection algorithm 
+on the array containing the sound data.
+The frame size will be equal to the sampling frequency.The number of chords returned 
 will be approximately equal to the number of seconds in the audio track.
 ```typescript
 
@@ -45,7 +47,7 @@ let sampleRate = 44100;
 c = new Chromagram(frameSize,sampleRate); 
 ```
 
-*3 - In the processing loop, fill a double precision array with one frame of audio samples and process it:* 
+*3 - In the processing loop, fill an array with one frame of audio samples and process it:* 
 
 ```typescript
 let frame = new Array(frameSize); 
@@ -117,7 +119,7 @@ chordDetector.rootNote
 chordDetector.quality
 chordDetector.intervals
 ```
-#### LICENSE
+## LICENSE
 
 GNU GENERAL PUBLIC LICENSE
 
